@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vigus'B — Pages SEO local (réparation téléphone)
 
-## Getting Started
+Pages programmatiques SEO local pour les villes du bassin de chalandise Vigus'B.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router, TypeScript)
+- Tailwind CSS v4 + Poppins (Google Fonts)
+- Static Site Generation (SSG)
+- Hébergement : Vercel
+
+## Lancer en local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir http://localhost:3000/reparation/saint-herblain
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pages générées
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/reparation/saint-herblain`
+- `/reparation/reze`
+- `/reparation/saint-sebastien-sur-loire`
+- `/reparation/vertou`
+- `/reparation/carquefou`
 
-## Learn More
+## Ajouter une nouvelle ville
 
-To learn more about Next.js, take a look at the following resources:
+1. Ouvrir `data/villes.ts`
+2. Ajouter un objet dans le tableau `villes` :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```typescript
+{
+  slug: "orvault",
+  nom: "Orvault",
+  codePostal: "44700",
+  habitants: 27000,
+  magasinLeProche: "nantes-centre", // slug du magasin dans magasins.ts
+  distanceKm: 6,
+  tempsTrajetMinutes: 15,
+  villesAlentours: ["Saint-Herblain", "Sautron", "La Chapelle-sur-Erdre", "Nantes"],
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. `npm run build` — la page `/reparation/orvault` est automatiquement générée.
 
-## Deploy on Vercel
+## Ajouter un nouveau magasin
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Ouvrir `data/magasins.ts` et ajouter un objet dans le tableau `magasins`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Structure
+
+```
+app/
+  reparation/[ville]/page.tsx   — Template unique (SSG)
+  sitemap.ts                     — Sitemap XML auto
+  robots.ts                      — robots.txt
+components/                      — Composants réutilisables
+data/
+  villes.ts                      — Données des villes
+  magasins.ts                    — Données des magasins
+  schemas.ts                     — Schémas JSON-LD
+```
