@@ -51,7 +51,7 @@ export function MagasinCard({ ville, magasin }: Props) {
                 href={magasin.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border border-border text-gray-text font-semibold text-sm px-4 py-2.5 rounded-lg hover:border-violet hover:text-violet transition-colors"
+                className="inline-flex items-center justify-center gap-2 border-2 border-violet text-violet font-semibold text-sm px-4 py-2.5 rounded-lg hover:bg-violet hover:text-white transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
                 Itinéraire Google Maps

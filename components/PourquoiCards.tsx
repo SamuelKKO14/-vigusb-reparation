@@ -32,15 +32,15 @@ const avantages = [
 export function PourquoiCards() {
   return (
     <section className="bg-white px-4 py-10 md:py-14">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
           Pourquoi choisir Vigus&apos;B ?
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {avantages.map((a) => (
             <div
               key={a.titre}
-              className="bg-gray-bg rounded-xl p-5 flex flex-col items-start gap-3"
+              className="bg-gray-bg rounded-xl p-6 md:p-8 flex flex-col items-start gap-3"
             >
               <div className="text-violet">{a.icon}</div>
               <h3 className="font-bold text-foreground text-sm md:text-base">{a.titre}</h3>

@@ -12,25 +12,24 @@ interface Props {
 
 export function MarquesGrid({ ville, tunnelUrl }: Props) {
   return (
-    <section className="bg-gray-bg px-4 py-10 md:py-14">
+    <section className="bg-gray-bg px-4 py-8 md:py-10">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">
-          Toutes les marques réparées à {ville.nom}
+        <h2 className="text-lg md:text-xl font-bold text-foreground mb-5">
+          Marques réparées
         </h2>
-        <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 md:gap-4">
+        <div className="flex gap-5 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap md:justify-start">
           {marques.map((m) => (
             <a
               key={m}
-              href={tunnelUrl}
-              className="group bg-white rounded-xl border border-border p-4 flex flex-col items-center gap-3 shadow-sm hover:shadow-md hover:border-violet transition-all"
+              href="https://6prjgd-4j.myshopify.com/pages/reparation"
+              className="group flex flex-col items-center gap-2 shrink-0"
             >
-              {/* Logo placeholder */}
-              <div className="w-14 h-14 rounded-lg bg-violet-light flex items-center justify-center">
+              <div className="w-[60px] h-[60px] rounded-full bg-violet-light flex items-center justify-center group-hover:shadow-[0_2px_8px_rgba(123,45,139,0.15)] transition-shadow">
                 <span className="text-violet font-bold text-lg">
                   {m.charAt(0)}
                 </span>
               </div>
-              <span className="text-xs md:text-sm font-semibold text-foreground text-center group-hover:text-violet transition-colors">
+              <span className="text-xs font-medium text-gray-text text-center whitespace-nowrap group-hover:text-violet transition-colors">
                 {m}
               </span>
             </a>
